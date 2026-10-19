@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oasis · OTC — Dashboard contable</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0f13;color:#e6e8ec;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:32px 20px 60px}
+.wrap{max-width:1120px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+h1{font-size:24px;font-weight:650;letter-spacing:-.02em}
+.sub{color:#8b93a1;font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#12261e;border:1px solid #1f4d3a;color:#6ee7b7;padding:7px 14px;border-radius:99px;font-size:13px;font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 8px #6ee7b7}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-bottom:28px}
+.card{background:#14171d;border:1px solid #1e232c;border-radius:14px;padding:20px}
+.ch{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.ch h2{font-size:16px;font-weight:640}
+.pill{font-size:11px;color:#8b93a1;background:#1b2029;border:1px solid #252b36;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.big{padding:14px 0 16px;border-bottom:1px solid #1e232c;margin-bottom:14px}
+.lbl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#727b8a;margin-bottom:4px}
+.big strong{font-size:30px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lines{margin-bottom:16px}
+.ln{display:flex;justify-content:space-between;padding:5px 0;font-size:13.5px;color:#c3c9d4}
+.ln b{font-variant-numeric:tabular-nums;font-weight:600;color:#e6e8ec}
+.ln.empty{color:#5c6472;font-style:italic}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;padding-top:14px;border-top:1px solid #1e232c}
+.grid2 b{font-size:14px;font-variant-numeric:tabular-nums;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.stat{background:#14171d;border:1px solid #1e232c;border-radius:14px;padding:18px}
+.stat strong{display:block;font-size:26px;font-weight:660;margin-top:6px;font-variant-numeric:tabular-nums}
+.ok{color:#6ee7b7}
+footer{color:#5c6472;font-size:12.5px;border-top:1px solid #1e232c;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+a{color:#60a5fa;text-decoration:none}
+</style></head><body><div class="wrap">
+<header>
+  <div><h1>Oasis Vault · The OTC Desk</h1><p class="sub">Dashboard contable · al 18/10/2026 23:42</p></div>
+  <span class="badge"><span class="dot"></span>869 asientos publicados · 0 borradores</span>
+</header>
+<div class="cards">
+    <section class="card">
+      <div class="ch">
+        <div><h2>Oasis Vault SAPI</h2><p class="sub">México · MXN</p></div>
+        <span class="pill">676 asientos</span>
+      </div>
+      <div class="big"><span class="lbl">Dinero hoy</span><strong>4,252.97</strong></div>
+      <div class="lines"><div class="ln"><span>Bancomer</span><b>4,000.00</b></div><div class="ln"><span>ARQ (USDC)</span><b>252.97</b></div></div>
+      <div class="grid2">
+        <div><span class="lbl">Custodia por cobrar</span><b>423,767.25</b></div>
+        <div><span class="lbl">Capital recibido</span><b>9,810,357.82</b></div>
+        <div><span class="lbl">Nómina</span><b>6,306,047.54</b></div>
+        <div><span class="lbl">Neto entre empresas</span><b>-1,063,049.68</b></div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="ch">
+        <div><h2>The OTC Desk</h2><p class="sub">México · MXN</p></div>
+        <span class="pill">34 asientos</span>
+      </div>
+      <div class="big"><span class="lbl">Dinero hoy</span><strong>282,444.27</strong></div>
+      <div class="lines"><div class="ln"><span>Monato (Finco Pay)</span><b>272,589.88</b></div><div class="ln"><span>Binance</span><b>5,854.39</b></div><div class="ln"><span>BBVA</span><b>4,000.00</b></div></div>
+      <div class="grid2">
+        <div><span class="lbl">Custodia por cobrar</span><b>351,535.68</b></div>
+        <div><span class="lbl">Capital recibido</span><b>1,012,946.71</b></div>
+        <div><span class="lbl">Nómina</span><b>0.00</b></div>
+        <div><span class="lbl">Neto entre empresas</span><b>0.00</b></div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="ch">
+        <div><h2>Oasis Vault I LLC</h2><p class="sub">Wyoming · USD</p></div>
+        <span class="pill">1 asientos</span>
+      </div>
+      <div class="big"><span class="lbl">Dinero hoy</span><strong>0.00</strong></div>
+      <div class="lines"><div class="ln empty">Sin cuentas con saldo</div></div>
+      <div class="grid2">
+        <div><span class="lbl">Custodia por cobrar</span><b>0.00</b></div>
+        <div><span class="lbl">Capital recibido</span><b>0.00</b></div>
+        <div><span class="lbl">Nómina</span><b>0.00</b></div>
+        <div><span class="lbl">Neto entre empresas</span><b>0.00</b></div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="ch">
+        <div><h2>Oasis Vault LLC</h2><p class="sub">Estados Unidos · USD</p></div>
+        <span class="pill">158 asientos</span>
+      </div>
+      <div class="big"><span class="lbl">Dinero hoy</span><strong>609.15</strong></div>
+      <div class="lines"><div class="ln"><span>Relay</span><b>609.15</b></div></div>
+      <div class="grid2">
+        <div><span class="lbl">Custodia por cobrar</span><b>0.00</b></div>
+        <div><span class="lbl">Capital recibido</span><b>0.00</b></div>
+        <div><span class="lbl">Nómina</span><b>0.00</b></div>
+        <div><span class="lbl">Neto entre empresas</span><b>-16,235.00</b></div>
+      </div>
+    </section></div>
+<div class="stats">
+  <div class="stat"><span class="lbl">Renglones de la hoja</span><strong>898</strong></div>
+  <div class="stat"><span class="lbl">Con asiento contable</span><strong class="ok">839</strong></div>
+  <div class="stat"><span class="lbl">Fuera, con motivo escrito</span><strong>59</strong></div>
+  <div class="stat"><span class="lbl">Diferencias por conciliar</span><strong class="ok">0.00</strong></div>
+</div>
+<footer>
+  <span>Los saldos se leen en vivo de Odoo; solo asientos publicados.</span>
+  <a href="https://oasis-vault-sapi-de-cv.odoo.com">Abrir Odoo →</a>
+</footer>
+</div></body></html>
