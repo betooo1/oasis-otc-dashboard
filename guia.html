@@ -1,0 +1,165 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía — Cómo usar tu contabilidad en Odoo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0f13;color:#e6e8ec;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:40px 20px 80px}
+.wrap{max-width:820px;margin:0 auto}
+h1{font-size:30px;font-weight:680;letter-spacing:-.02em;margin-bottom:6px}
+.lead{color:#8b93a1;font-size:15px;margin-bottom:34px}
+h2{font-size:20px;font-weight:660;margin:38px 0 12px;padding-top:22px;border-top:1px solid #1e232c}
+h3{font-size:15px;font-weight:640;margin:22px 0 8px;color:#c3c9d4}
+p{margin:10px 0;color:#c3c9d4}
+ul,ol{margin:10px 0 10px 22px;color:#c3c9d4}
+li{margin:6px 0}
+b,strong{color:#e6e8ec;font-weight:640}
+a{color:#60a5fa;text-decoration:none}
+code{background:#1b2029;border:1px solid #252b36;border-radius:5px;padding:1px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#9fd6ff}
+.box{background:#14171d;border:1px solid #1e232c;border-radius:12px;padding:16px 18px;margin:16px 0}
+.box.warn{border-color:#4a3a1f;background:#1a1610}
+.box.tip{border-color:#1f4d3a;background:#101a15}
+.box h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#8b93a1;margin-bottom:8px;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+th{text-align:left;color:#727b8a;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:8px;border-bottom:1px solid #1e232c}
+td{padding:8px;border-bottom:1px solid #171b21;color:#c3c9d4;vertical-align:top}
+.step{display:flex;gap:14px;margin:14px 0}
+.num{flex:0 0 26px;height:26px;border-radius:50%;background:#1b2029;border:1px solid #2a3240;color:#9fb0c8;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+footer{margin-top:50px;padding-top:20px;border-top:1px solid #1e232c;color:#5c6472;font-size:13px}
+.pill{display:inline-block;background:#1b2029;border:1px solid #252b36;border-radius:99px;padding:2px 10px;font-size:12px;color:#9fb0c8}
+</style></head><body><div class="wrap">
+<h1>Cómo usar tu contabilidad en Odoo</h1>
+<p class="lead">Guía práctica · Oasis Vault, The OTC Desk y Mist Labs · 19 de octubre de 2026</p>
+
+<h2>1. Cómo entrar</h2>
+<p>Abre <a href="https://oasis-vault-sapi-de-cv.odoo.com">oasis-vault-sapi-de-cv.odoo.com</a> en cualquier navegador y entra con tu usuario. No necesitas instalar nada.</p>
+<p>Lo primero que verás es el menú de aplicaciones. Todo lo contable vive en <b>Contabilidad</b>.</p>
+<div class="box tip"><h4>Atajo</h4><p>Todo lo que armamos está en el menú <b>Contabilidad → AN · Operativo</b>. Son 14 pantallas hechas para tus preguntas concretas, no para contadores.</p></div>
+
+<h2>2. El mapa: qué hay y dónde está</h2>
+<p>Tienes cuatro personas morales activas y una en formación, agrupadas en tres proyectos:</p>
+<table><thead><tr><th>Proyecto</th><th>Persona moral</th><th>Moneda</th></tr></thead><tbody>
+<tr><td>Oasis Vault</td><td>Oasis Vault, S.A.P.I. de C.V.</td><td>MXN</td></tr>
+<tr><td>Oasis Vault</td><td>Oasis Vault LLC (Delaware)</td><td>USD</td></tr>
+<tr><td>The OTC Desk</td><td>The OTC Desk, S.A. de C.V.</td><td>MXN</td></tr>
+<tr><td>Mist Labs</td><td>Oasis Vault I LLC (Wyoming)</td><td>USD</td></tr>
+<tr><td>Mist Labs</td><td>Mist Labs, S.A.P.I. de C.V. (sin cuentas aún)</td><td>MXN</td></tr>
+</tbody></table>
+<p><b>Importante:</b> Odoo separa por persona moral, no por proyecto. Para ver un proyecto completo tienes que revisar sus dos empresas. El dashboard de la web sí las agrupa.</p>
+
+<h2>3. Cómo verla</h2>
+<p>El selector de compañía está arriba a la derecha. Si eliges <b>una</b>, ves solo esa empresa. Si eliges <b>todas</b>, Odoo suma todo — y ahí es donde te puedes confundir, porque mezcla pesos con dólares. <b>Recomendación: trabaja siempre con una empresa a la vez.</b></p>
+
+<h3>Las pantallas del menú AN · Operativo</h3>
+<table><thead><tr><th>Pantalla</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>1 · Mis cuentas</td><td>Qué cuentas de dinero existen y su tipo</td></tr>
+<tr><td>2 · Deudas</td><td>Qué se debe y a quién</td></tr>
+<tr><td>3 · Movimientos</td><td>Todos los asientos; se puede ver en lista, kanban, pivote y gráfica</td></tr>
+<tr><td>4 · Por revisar</td><td>Renglones de la migración que quedaron sin resolver</td></tr>
+<tr><td>5 · Gastos por concepto</td><td>En qué se fue el dinero, agrupado por cuenta</td></tr>
+<tr><td>6 · Cap table</td><td>Aportaciones y cesiones entre socios</td></tr>
+<tr><td>7 · Dashboard ejecutivo</td><td>Vista pivote general</td></tr>
+<tr><td>8 · Saldos de dinero</td><td>Cuánto hay hoy en cada cuenta</td></tr>
+<tr><td>9 · Custodia y partes relacionadas</td><td>Quién tiene el USDC de la empresa y qué se deben entre empresas</td></tr>
+<tr><td>10 · Aportaciones de socios</td><td>Capital recibido, por empresa</td></tr>
+<tr><td>11 · Nómina</td><td>Todos los sueldos 2024–2026</td></tr>
+<tr><td>12 · Ajustes de migración</td><td>Lo que no se pudo atribuir, ya separado</td></tr>
+<tr><td>13 · Asientos de conciliación</td><td>Los 92 asientos que cuadraron la realidad</td></tr>
+<tr><td>14 · Bandeja de la migración</td><td>Los 898 renglones de tu hoja y con qué asiento quedaron</td></tr>
+</tbody></table>
+
+<h3>Los cuatro trucos de lectura</h3>
+<div class="step"><div class="num">1</div><div><b>Agrupar.</b> En cualquier lista, el botón <span class="pill">Agrupar por</span> mete renglones por empresa, cuenta o fecha. Es la forma más rápida de resumir.</div></div>
+<div class="step"><div class="num">2</div><div><b>Vista pivote.</b> Arriba a la derecha de la lista hay iconos: lista, kanban, <b>pivote</b> y gráfica. El pivote es una tabla dinámica: arrastra campos a filas y columnas.</div></div>
+<div class="step"><div class="num">3</div><div><b>Filtros guardados.</b> Ya existen cinco: <code>AN · Solo posteados</code>, <code>AN · Gastos sin contabilizar</code>, <code>AN · Líneas borrador</code>, etc. Aparecen en la barra de búsqueda → Favoritos.</div></div>
+<div class="step"><div class="num">4</div><div><b>Favoritos.</b> Cuando tengas una vista que te gusta, guárdala en <span class="pill">Favoritos → Guardar vista actual</span>. Te queda a un clic.</div></div>
+
+<h2>4. Cómo buscar</h2>
+<p>La barra de búsqueda de cada pantalla (arriba) funciona con texto y con filtros. Lo que más te va a servir:</p>
+<ul>
+<li><b>Por referencia de la hoja:</b> escribe <code>hermes-row:443</code> y sale el asiento de esa fila exacta.</li>
+<li><b>Por lote de trabajo:</b> <code>hermes-payroll-backfill</code> trae la nómina reconocida; <code>relay-import</code> los movimientos de Relay; <code>hermes-reconcile</code> los ajustes de conciliación.</li>
+<li><b>Por persona:</b> escribe el nombre en Contacto.</li>
+<li><b>Por monto:</b> usa los filtros de importe en la barra de búsqueda.</li>
+<li><b>Por fecha:</b> filtro <span class="pill">Fecha</span> con rango.</li>
+</ul>
+<div class="box"><h4>Cada asiento tiene su origen escrito</h4><p>El campo <b>Referencia</b> dice de dónde salió: <code>hermes-row:N</code> es el renglón N de tu hoja; <code>hermes-mist-rent-mx:12</code> es la renta de Mist; <code>relay-import:in:2026-06-30:5000.00</code> es un depósito de Relay. Eso te permite rastrear cualquier cifra hasta su origen.</p></div>
+
+<h2>5. Cómo registrar una entrada nueva</h2>
+
+<h3>Opción A — Gasto con factura del proveedor (la mejor)</h3>
+<div class="step"><div class="num">1</div><div>Contabilidad → <b>Proveedores → Facturas</b> → Nuevo.</div></div>
+<div class="step"><div class="num">2</div><div>Pon el proveedor, la fecha del comprobante y el monto. Adjunta el PDF en el botón <b>Adjuntar</b>.</div></div>
+<div class="step"><div class="num">3</div><div>Revisa que la cuenta de gasto sea la correcta y confirma.</div></div>
+<p>Ventaja: queda el comprobante ligado, el IVA se maneja solo y el gasto aparece en los reportes del mes.</p>
+
+<h3>Opción B — Asiento manual (cuando no hay factura)</h3>
+<div class="step"><div class="num">1</div><div>Contabilidad → <b>Asientos</b> → Nuevo.</div></div>
+<div class="step"><div class="num">2</div><div>Fecha, referencia (escríbela clara: <code>renta-oct-2026</code>) y dos líneas: una cuenta de gasto al Debe y una cuenta de dinero al Haber.</div></div>
+<div class="step"><div class="num">3</div><div>Verifica que las dos columnas sumen igual. Odoo no te deja publicar si no cuadra.</div></div>
+<div class="step"><div class="num">4</div><div>Botón <b>Publicar</b>.</div></div>
+
+<h3>Opción C — Decírmelo a mí</h3>
+<p>Llenas la plantilla <code>plantilla-gastos.csv</code> (fecha, concepto, monto, moneda, empresa, tipo, contraparte, comprobante, notas) y yo los cargo por API con su referencia. Es lo que hicimos con Relay: 20 movimientos cargados y verificados contra el estado de cuenta.</p>
+
+<div class="box warn"><h4>Regla de oro</h4><p><b>Nunca registres un gasto sin saber de qué cuenta de dinero salió.</b> Si no lo sabes, es que el dinero no está identificado — y ahí es donde se abren los huecos que nos costó cerrar.</p></div>
+
+<h2>6. Cómo compartirla</h2>
+<h3>Dar acceso a tu contador</h3>
+<div class="step"><div class="num">1</div><div>Ajustes → <b>Usuarios</b> → Nuevo.</div></div>
+<div class="step"><div class="num">2</div><div>Nombre, correo y en <b>Permisos de contabilidad</b> elige <b>Contador</b> (puede crear y publicar) o <b>Facturación</b> (solo facturas).</div></div>
+<div class="step"><div class="num">3</div><div>En la pestaña <b>Acceso a empresas</b> marca solo las empresas que debe ver.</div></div>
+<div class="step"><div class="num">4</div><div>Guarda. Le llega una invitación por correo.</div></div>
+
+<h3>Exportar a Excel o PDF</h3>
+<ul>
+<li>En cualquier lista: botón <b>⚙ → Exportar</b>. Eliges columnas y descargas .xlsx.</li>
+<li>En reportes: <b>Balance general</b>, <b>Estado de resultados</b>, <b>Libro mayor</b> → botón PDF o XLSX.</li>
+<li>El dashboard público: <a href="https://betooo1.github.io/oasis-otc-dashboard/">betooo1.github.io/oasis-otc-dashboard</a> — es una foto del día; se actualiza cuando corro el script.</li>
+</ul>
+<div class="box warn"><h4>Cuidado con el dashboard</h4><p>Es público: cualquiera con el link ve las cifras. Si lo compartes con un socio, él lo puede reenviar.</p></div>
+
+<h2>7. Reglas de cuidado</h2>
+<ul>
+<li><b>No edites asientos publicados.</b> Si hay un error, usa <b>Revertir a borrador</b> (queda el rastro de quién y cuándo) o haz un asiento de reverso. Borrar destruye la auditoría.</li>
+<li><b>No borres asientos.</b> Si algo está mal, se corrige con otro asiento.</li>
+<li><b>Un asiento siempre cuadra.</b> Debe = Haber. No hay excepciones.</li>
+<li><b>Nunca borres la referencia.</b> Es el hilo que permite rastrear cualquier cifra hasta tu hoja original.</li>
+<li><b>Los borradores no cuentan.</b> Todo lo que ves en reportes es solo lo publicado: ahora mismo hay 869 publicados y 0 borradores.</li>
+</ul>
+
+<h2>8. Mudanza a Odoo Community</h2>
+<p>Es factible, pero conviene que sepas exactamente qué implica antes de empezar.</p>
+
+<h3>Lo que <u>no</u> es</h3>
+<p><b>No es restaurar un respaldo.</b> Tu Odoo actual es Enterprise en la nube (versión 20). Community es otra instalación, autohospedada. Los respaldos de una no se abren en la otra.</p>
+
+<h3>Lo que sí se puede llevar</h3>
+<table><thead><tr><th>Se lleva</th><th>Cómo</th></tr></thead><tbody>
+<tr><td>4 empresas y su moneda</td><td>Se recrean</td></tr>
+<tr><td>Catálogo de cuentas (934)</td><td>Por API</td></tr>
+<tr><td>Contactos y socios</td><td>Por API</td></tr>
+<tr><td>Los 869 asientos con sus líneas</td><td>Por API, uno por uno</td></tr>
+<tr><td>La bandeja de migración (898 renglones)</td><td>Es un modelo propio; se recrea</td></tr>
+<tr><td>Adjuntos (el sello, PDFs)</td><td>Se copian</td></tr>
+</tbody></table>
+
+<h3>Lo que se pierde o cambia</h3>
+<ul>
+<li><b>Reportes Enterprise</b> (balance, resultados, pivotes prearmados) — Community tiene versiones más básicas.</li>
+<li><b>Localización mexicana completa</b> — el CFDI/diot funciona distinto. Hoy no tienes CFDI emitidos, así que el impacto es bajo, pero hay que revisarlo antes de facturar.</li>
+<li><b>Los menús y pantallas que armamos</b> — se recrean; es trabajo mecánico.</li>
+<li><b>El hosting</b> — pasa a tu Mac mini. Si se cae tu internet o el mini, no hay contabilidad hasta que vuelva.</li>
+</ul>
+
+<h3>Plan en cinco pasos</h3>
+<div class="step"><div class="num">1</div><div><b>Re-exportar</b> el estado actual (el export que tenemos es de ayer 14:39, anterior a la conciliación). ~5 min.</div></div>
+<div class="step"><div class="num">2</div><div><b>Instalar</b> Odoo Community 19 en el Mac mini con PostgreSQL 16. Ya están los binarios descargados y verificados. ~1 h.</div></div>
+<div class="step"><div class="num">3</div><div><b>Cargar</b> empresas, cuentas, contactos y diarios. ~1 h.</div></div>
+<div class="step"><div class="num">4</div><div><b>Migrar los 869 asientos</b> por API, en orden y verificando que cada uno cuadre. ~2-3 h.</div></div>
+<div class="step"><div class="num">5</div><div><b>Verificar</b>: que los saldos de las 4 empresas coincidan al centavo con Enterprise. Solo entonces se apunta el uso diario al nuevo.</div></div>
+<p><b>Total estimado: una tarde larga.</b> Y una condición: no apagar Enterprise hasta que Community cuadre idéntico.</p>
+
+<div class="box tip"><h4>Mi recomendación</h4><p>Hazlo, pero no hoy. Primero usa la contabilidad unas semanas en Enterprise, detecta qué te falta, y mudas con eso ya resuelto. Migrar dos veces sale más caro que migrar una bien.</p></div>
+
+<footer>Oasis Vault · The OTC Desk · Mist Labs — guía preparada el 19 de octubre de 2026.</footer>
+</div></body></html>
