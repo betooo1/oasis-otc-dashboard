@@ -1,5 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Oasis · OTC · Mist — Dashboard</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -10,6 +9,14 @@ h1{font-size:25px;font-weight:660;letter-spacing:-.02em}
 .sub{color:#8b93a1;font-size:13px;margin-top:3px}
 .badge{display:inline-flex;align-items:center;gap:8px;background:#12261e;border:1px solid #1f4d3a;color:#6ee7b7;padding:7px 14px;border-radius:99px;font-size:13px;font-weight:600}
 .dot{width:7px;height:7px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 8px #6ee7b7}
+body[data-cur="MXN"] .cur-USD{display:none!important}
+body[data-cur="USD"] .cur-MXN{display:none!important}
+.hright{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.toggle{display:inline-flex;background:#1b2029;border:1px solid #252b36;border-radius:99px;padding:3px;gap:2px}
+.toggle button{background:transparent;border:0;color:#8b93a1;font:inherit;font-size:13px;font-weight:650;padding:6px 16px;border-radius:99px;cursor:pointer}
+.toggle button.on{background:#2a3240;color:#fff}
+.kpis{padding:0;background:none;border:0}
+.empty-note{color:#5c6472;font-style:italic;font-size:12.5px;padding:10px 0}
 .proj{background:#14171d;border:1px solid #1e232c;border-radius:16px;padding:22px;margin-bottom:18px}
 .ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .ph h2{font-size:19px;font-weight:660}
@@ -55,10 +62,13 @@ td{padding:6px 8px;border-bottom:1px solid #171b21;color:#c3c9d4}
 .stat strong{display:block;font-size:24px;font-weight:660;font-variant-numeric:tabular-nums;margin-top:4px}
 footer{color:#5c6472;font-size:12.5px;border-top:1px solid #1e232c;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 a{color:#60a5fa;text-decoration:none}
-</style></head><body><div class="wrap">
+</style></head><body data-cur="MXN"><div class="wrap">
 <header>
- <div><h1>Oasis · OTC · Mist</h1><p class="sub">Dashboard por proyecto · al 19/10/2026 08:55</p></div>
- <span class="badge"><span class="dot"></span>869 asientos publicados · 0 borradores</span>
+ <div><h1>Oasis · OTC · Mist</h1><p class="sub">Dashboard por proyecto · al 19/10/2026 09:03</p></div>
+ <div class="hright">
+  <div class="toggle"><button type="button" data-cur="MXN" class="on">MXN</button><button type="button" data-cur="USD">USD</button></div>
+  <span class="badge"><span class="dot"></span>869 asientos publicados · 0 borradores</span>
+ </div>
 </header>
 <div class="stats">
  <div class="stat"><span class="lbl">Renglones de la hoja</span><strong>898</strong></div>
@@ -68,15 +78,19 @@ a{color:#60a5fa;text-decoration:none}
 </div>
 <section class="proj">
    <div class="ph"><h2>Oasis Vault</h2><span class="badge2">2 personas morales</span></div>
-   <div class="kpis"><div class="kpi"><span class="lbl">Dinero MXN</span><strong>4,252.97</strong></div>
+   <div class="kpis-cur"><div class="kpis cur-MXN">
+   <div class="kpi"><span class="lbl">Dinero MXN</span><strong>4,252.97</strong></div>
    <div class="kpi"><span class="lbl">Ingresos MXN</span><strong class="pos">292,664.80</strong></div>
    <div class="kpi"><span class="lbl">Gastos MXN</span><strong>9,508,695.73</strong></div>
-   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="neg">-9,216,030.93</strong></div><div class="kpi"><span class="lbl">Dinero USD</span><strong>609.15</strong></div>
+   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="neg">-9,216,030.93</strong></div>
+   </div><div class="kpis cur-USD">
+   <div class="kpi"><span class="lbl">Dinero USD</span><strong>609.15</strong></div>
    <div class="kpi"><span class="lbl">Ingresos USD</span><strong class="pos">13,474.02</strong></div>
    <div class="kpi"><span class="lbl">Gastos USD</span><strong>202,464.72</strong></div>
-   <div class="kpi"><span class="lbl">Resultado USD</span><strong class="neg">-188,990.70</strong></div></div>
+   <div class="kpi"><span class="lbl">Resultado USD</span><strong class="neg">-188,990.70</strong></div>
+   </div></div>
    <div class="cols">
-     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent">
+     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent cur-MXN">
      <div class="enth"><div><strong>Oasis Vault, S.A.P.I. de C.V.</strong><em>México · MXN</em></div><span class="pill">676 asientos</span></div>
      <div class="sub2">Dinero</div><div class="lines"><div class="ln"><span>Bancomer</span><b>4,000.00</b></div><div class="ln"><span>ARQ (USDC)</span><b>252.97</b></div></div>
      <div class="sub2">Entre empresas</div><div class="lines"><div class="ln"><span>Cuenta corriente Oasis EU</span><b class="pos">282,338.60</b></div><div class="ln"><span>Cuenta corriente The OTC Desk</span><b class="neg">-1,345,388.28</b></div></div>
@@ -85,7 +99,7 @@ a{color:#60a5fa;text-decoration:none}
        <div><span class="lbl">Capital</span><b>9,810,357.82</b></div>
        <div><span class="lbl">Nómina</span><b>6,306,047.54</b></div>
        <div><span class="lbl">Deuda</span><b>10,118.70</b></div>
-     </div></div><div class="ent">
+     </div></div><div class="ent cur-USD">
      <div class="enth"><div><strong>Oasis Vault LLC</strong><em>Delaware, EU · USD</em></div><span class="pill">158 asientos</span></div>
      <div class="sub2">Dinero</div><div class="lines"><div class="ln"><span>Relay</span><b>609.15</b></div></div>
      <div class="sub2">Entre empresas</div><div class="lines"><div class="ln"><span>Cuenta corriente Oasis Mexico</span><b class="neg">-16,235.00</b></div></div>
@@ -95,17 +109,19 @@ a{color:#60a5fa;text-decoration:none}
        <div><span class="lbl">Nómina</span><b>0.00</b></div>
        <div><span class="lbl">Deuda</span><b>70,894.00</b></div>
      </div></div></div></div>
-     <div class="col"><h3>Gastos por categoría — MXN</h3><div class="bars"><div class="bar"><span class="bn">Wages and salaries</span><span class="bt"><i style="width:100%"></i></span><b>6,306,047.54</b></div><div class="bar"><span class="bn">Fees paid to national resident ind</span><span class="bt"><i style="width:27%"></i></span><b>1,714,741.96</b></div><div class="bar"><span class="bn">Cost of sales</span><span class="bt"><i style="width:9%"></i></span><b>623,450.08</b></div><div class="bar"><span class="bn">Software, memberships and subscrip</span><span class="bt"><i style="width:6%"></i></span><b>430,184.03</b></div><div class="bar"><span class="bn">Advertising and Publicity</span><span class="bt"><i style="width:3%"></i></span><b>228,437.95</b></div><div class="bar"><span class="bn">Administration Fees</span><span class="bt"><i style="width:2%"></i></span><b>187,274.16</b></div><div class="bar"><span class="bn">Office Rent paid to Individuals</span><span class="bt"><i style="width:2%"></i></span><b>10,118.70</b></div></div></div>
+     <div class="col cur-MXN"><h3>Gastos por categoría — MXN</h3><div class="bars"><div class="bar"><span class="bn">Wages and salaries</span><span class="bt"><i style="width:100%"></i></span><b>6,306,047.54</b></div><div class="bar"><span class="bn">Fees paid to national resident ind</span><span class="bt"><i style="width:27%"></i></span><b>1,714,741.96</b></div><div class="bar"><span class="bn">Cost of sales</span><span class="bt"><i style="width:9%"></i></span><b>623,450.08</b></div><div class="bar"><span class="bn">Software, memberships and subscrip</span><span class="bt"><i style="width:6%"></i></span><b>430,184.03</b></div><div class="bar"><span class="bn">Advertising and Publicity</span><span class="bt"><i style="width:3%"></i></span><b>228,437.95</b></div><div class="bar"><span class="bn">Administration Fees</span><span class="bt"><i style="width:2%"></i></span><b>187,274.16</b></div><div class="bar"><span class="bn">Office Rent paid to Individuals</span><span class="bt"><i style="width:2%"></i></span><b>10,118.70</b></div></div></div><div class="col cur-USD"><h3>Gastos por categoría — USD</h3><div class="bars"><div class="bar"><span class="bn">Salaries & Wages</span><span class="bt"><i style="width:100%"></i></span><b>137,452.00</b></div><div class="bar"><span class="bn">Advertising & Marketing</span><span class="bt"><i style="width:41%"></i></span><b>56,995.00</b></div><div class="bar"><span class="bn">Legal</span><span class="bt"><i style="width:3%"></i></span><b>4,975.00</b></div><div class="bar"><span class="bn">Bank Fees</span><span class="bt"><i style="width:2%"></i></span><b>2,444.59</b></div><div class="bar"><span class="bn">Software</span><span class="bt"><i style="width:2%"></i></span><b>598.13</b></div></div></div>
    </div>
    
   </section><section class="proj">
    <div class="ph"><h2>The OTC Desk</h2><span class="badge2">1 persona moral</span></div>
-   <div class="kpis"><div class="kpi"><span class="lbl">Dinero MXN</span><strong>282,444.27</strong></div>
+   <div class="kpis-cur"><div class="kpis cur-MXN">
+   <div class="kpi"><span class="lbl">Dinero MXN</span><strong>282,444.27</strong></div>
    <div class="kpi"><span class="lbl">Ingresos MXN</span><strong class="pos">23,788.12</strong></div>
    <div class="kpi"><span class="lbl">Gastos MXN</span><strong>303,505.40</strong></div>
-   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="neg">-279,717.28</strong></div></div>
+   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="neg">-279,717.28</strong></div>
+   </div></div>
    <div class="cols">
-     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent">
+     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent cur-MXN">
      <div class="enth"><div><strong>The OTC Desk, S.A. de C.V.</strong><em>México · MXN</em></div><span class="pill">34 asientos</span></div>
      <div class="sub2">Dinero</div><div class="lines"><div class="ln"><span>Monato (Finco Pay)</span><b>272,589.88</b></div><div class="ln"><span>Binance</span><b>5,854.39</b></div><div class="ln"><span>BBVA</span><b>4,000.00</b></div></div>
      <div class="sub2">Entre empresas</div><div class="lines"><div class="ln empty">Sin saldo entre empresas</div></div>
@@ -114,21 +130,25 @@ a{color:#60a5fa;text-decoration:none}
        <div><span class="lbl">Capital</span><b>1,012,946.71</b></div>
        <div><span class="lbl">Nómina</span><b>0.00</b></div>
        <div><span class="lbl">Deuda</span><b>1,302,446.48</b></div>
-     </div></div></div></div>
-     <div class="col"><h3>Gastos por categoría — MXN</h3><div class="bars"><div class="bar"><span class="bn">Fees paid to national resident cor</span><span class="bt"><i style="width:100%"></i></span><b>156,145.80</b></div><div class="bar"><span class="bn">Fees paid to national resident ind</span><span class="bt"><i style="width:72%"></i></span><b>113,618.30</b></div><div class="bar"><span class="bn">Software, memberships and subscrip</span><span class="bt"><i style="width:14%"></i></span><b>22,994.81</b></div><div class="bar"><span class="bn">Bank fees</span><span class="bt"><i style="width:6%"></i></span><b>10,746.49</b></div></div></div>
+     </div></div></div><div class="empty-note cur-USD">Este proyecto no tiene personas morales en USD.</div></div>
+     <div class="col cur-MXN"><h3>Gastos por categoría — MXN</h3><div class="bars"><div class="bar"><span class="bn">Fees paid to national resident cor</span><span class="bt"><i style="width:100%"></i></span><b>156,145.80</b></div><div class="bar"><span class="bn">Fees paid to national resident ind</span><span class="bt"><i style="width:72%"></i></span><b>113,618.30</b></div><div class="bar"><span class="bn">Software, memberships and subscrip</span><span class="bt"><i style="width:14%"></i></span><b>22,994.81</b></div><div class="bar"><span class="bn">Bank fees</span><span class="bt"><i style="width:6%"></i></span><b>10,746.49</b></div></div></div>
    </div>
    
   </section><section class="proj">
    <div class="ph"><h2>Mist Labs</h2><span class="badge2">2 personas morales</span></div>
-   <div class="kpis"><div class="kpi"><span class="lbl">Dinero MXN</span><strong>0.00</strong></div>
+   <div class="kpis-cur"><div class="kpis cur-MXN">
+   <div class="kpi"><span class="lbl">Dinero MXN</span><strong>0.00</strong></div>
    <div class="kpi"><span class="lbl">Ingresos MXN</span><strong class="pos">0.00</strong></div>
    <div class="kpi"><span class="lbl">Gastos MXN</span><strong>0.00</strong></div>
-   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="">0.00</strong></div><div class="kpi"><span class="lbl">Dinero USD</span><strong>0.00</strong></div>
+   <div class="kpi"><span class="lbl">Resultado MXN</span><strong class="">0.00</strong></div>
+   </div><div class="kpis cur-USD">
+   <div class="kpi"><span class="lbl">Dinero USD</span><strong>0.00</strong></div>
    <div class="kpi"><span class="lbl">Ingresos USD</span><strong class="pos">0.00</strong></div>
    <div class="kpi"><span class="lbl">Gastos USD</span><strong>275.00</strong></div>
-   <div class="kpi"><span class="lbl">Resultado USD</span><strong class="neg">-275.00</strong></div></div>
+   <div class="kpi"><span class="lbl">Resultado USD</span><strong class="neg">-275.00</strong></div>
+   </div></div>
    <div class="cols">
-     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent">
+     <div class="col"><h3>Personas morales</h3><div class="ents"><div class="ent cur-MXN">
      <div class="enth"><div><strong>Mist Labs, S.A.P.I. de C.V.</strong><em>México · MXN</em></div><span class="pill">0 asientos</span></div>
      <div class="sub2">Dinero</div><div class="lines"><div class="ln empty">Sin cuentas con saldo</div></div>
      <div class="sub2">Entre empresas</div><div class="lines"><div class="ln empty">Sin saldo entre empresas</div></div>
@@ -137,7 +157,7 @@ a{color:#60a5fa;text-decoration:none}
        <div><span class="lbl">Capital</span><b>0.00</b></div>
        <div><span class="lbl">Nómina</span><b>0.00</b></div>
        <div><span class="lbl">Deuda</span><b>0.00</b></div>
-     </div></div><div class="ent">
+     </div></div><div class="ent cur-USD">
      <div class="enth"><div><strong>Oasis Vault I LLC</strong><em>Wyoming, EU · USD</em></div><span class="pill">1 asientos</span></div>
      <div class="sub2">Dinero</div><div class="lines"><div class="ln empty">Sin cuentas con saldo</div></div>
      <div class="sub2">Entre empresas</div><div class="lines"><div class="ln empty">Sin saldo entre empresas</div></div>
@@ -147,26 +167,31 @@ a{color:#60a5fa;text-decoration:none}
        <div><span class="lbl">Nómina</span><b>0.00</b></div>
        <div><span class="lbl">Deuda</span><b>275.00</b></div>
      </div></div></div></div>
-     <div class="col"><h3>Gastos por categoría — MXN</h3><div class="bars"><div class="ln empty">Sin gastos</div></div></div>
+     <div class="col cur-USD"><h3>Gastos por categoría — USD</h3><div class="bars"><div class="bar"><span class="bn">Legal</span><span class="bt"><i style="width:100%"></i></span><b>275.00</b></div></div></div>
    </div>
    <p class="note">Mist Labs SAPI aún no tiene catálogo de cuentas: sus gastos (rentas 560 USD e IMPI 164.71 USD) están registrados hoy en Oasis Vault SAPI. Wyoming no tiene cuenta bancaria y arrastra una deuda de 275 USD con Alberto.</p>
   </section>
 <div class="block"><h2>Gastos del mes en curso — Octubre 2026</h2>
-<div class="bars"><div class="bar"><span class="bn">Office Rent paid to Individuals</span><span class="bt"><i style="width:100%"></i></span><b>10,118.70</b></div><div class="bar"><span class="bn">Software, memberships and subscription</span><span class="bt"><i style="width:8%"></i></span><b>904.72</b></div><div class="bar"><span class="bn">Bank Fees</span><span class="bt"><i style="width:2%"></i></span><b>16.00</b></div></div>
-<p class="note">Total del mes: <b>11,039.42</b>. Solo aparecen los gastos ya capturados; lo que falte por registrar no se ve aquí.</p>
+<div class="cur-MXN"><div class="bars"><div class="bar"><span class="bn">Office Rent paid to Individuals</span><span class="bt"><i style="width:100%"></i></span><b>10,118.70</b></div><div class="bar"><span class="bn">Software, memberships and subscription</span><span class="bt"><i style="width:8%"></i></span><b>904.72</b></div></div><p class="note">Total MXN del mes: <b>11,023.42</b></p></div>
+<div class="cur-USD"><div class="bars"><div class="bar"><span class="bn">Bank Fees</span><span class="bt"><i style="width:100%"></i></span><b>16.00</b></div></div><p class="note">Total USD del mes: <b>16.00</b></p></div>
+<p class="note">Solo aparecen los gastos ya capturados; lo que falte por registrar no se ve aquí.</p>
 </div>
 <div class="block"><h2>Entre proyectos</h2>
 <table><thead><tr><th>Proyecto</th><th>Persona moral</th><th>Cuenta</th><th>Saldo</th></tr></thead>
-<tbody><tr><td>Oasis Vault</td><td>Oasis Vault, S.A.P.I. de C.V.</td><td>Cuenta corriente Oasis EU</td><td class="pos">282,338.60 MXN</td></tr><tr><td>Oasis Vault</td><td>Oasis Vault, S.A.P.I. de C.V.</td><td>Cuenta corriente The OTC Desk</td><td class="neg">-1,345,388.28 MXN</td></tr><tr><td>Oasis Vault</td><td>Oasis Vault LLC</td><td>Cuenta corriente Oasis Mexico</td><td class="neg">-16,235.00 USD</td></tr></tbody></table>
+<tbody><tr class="cur-MXN"><td>Oasis Vault</td><td>Oasis Vault, S.A.P.I. de C.V.</td><td>Cuenta corriente Oasis EU</td><td class="pos">282,338.60 MXN</td></tr><tr class="cur-MXN"><td>Oasis Vault</td><td>Oasis Vault, S.A.P.I. de C.V.</td><td>Cuenta corriente The OTC Desk</td><td class="neg">-1,345,388.28 MXN</td></tr><tr class="cur-USD"><td>Oasis Vault</td><td>Oasis Vault LLC</td><td>Cuenta corriente Oasis Mexico</td><td class="neg">-16,235.00 USD</td></tr></tbody></table>
 </div>
 <div class="block"><h2>Aportaciones de socios</h2>
-<div class="two">
+<div class="two cur-USD">
  <div><table><thead><tr><th>Socio</th><th>Aportado</th></tr></thead><tbody><div class="ln"><span>Isaac Dabbah</span><b>100,000.00 USD</b></div><div class="ln"><span>Grupo Nehmad</span><b>66,666.67 USD</b></div><div class="ln"><span>Rodrigo Rangel</span><b>57,624.75 USD</b></div><div class="ln"><span>Simon Levy</span><b>40,000.00 USD</b></div><div class="ln"><span>Abraham Hamui Dabbah</span><b>40,000.00 USD</b></div><div class="ln"><span>Lydia Dabbah Asse</span><b>40,000.00 USD</b></div><div class="ln"><span>Rafael Jaime Kalach Jalife</span><b>40,000.00 USD</b></div><div class="ln"><span>Eduardo Hanono Cohen</span><b>20,000.50 USD</b></div><div class="ln"><span>Adela Kably Marcos</span><b>20,000.00 USD</b></div><div class="ln"><span>Hayam Corp</span><b>20,000.00 USD</b></div><div class="ln"><span>Jack Kalach Lati</span><b>20,000.00 USD</b></div><div class="ln"><span>Jose Leon,Perez/Ison</span><b>20,000.00 USD</b></div></tbody></table></div>
  <div class="note" style="margin:0;padding:0;border:0">Total aportado al grupo: <b>613,776.31 USD</b> entre 22 socios. Se muestran los 12 mayores. Fuente: hoja original, pestaña INVESTMENTS.</div>
-</div></div>
+</div>
+<div class="cur-MXN"><p class="note" style="margin:0;padding:0;border:0">Las aportaciones de socios se registraron en dólares. Cambia a USD para verlas.</p></div>
+</div>
 <div class="block"><h2>Últimos movimientos registrados</h2>
 <table><thead><tr><th>Fecha</th><th>Proyecto</th><th>Moneda</th><th>Referencia</th></tr></thead><tbody><tr><td>2026-10-18</td><td>Oasis Vault</td><td>MXN</td><td class="mono">hermes-split-bank:2026-10-18</td></tr><tr><td>2026-10-18</td><td>Oasis Vault</td><td>MXN</td><td class="mono">hermes-reconcile:sapi-cash:376:2026-10-18</td></tr><tr><td>2026-10-18</td><td>Oasis Vault</td><td>MXN</td><td class="mono">hermes-reconcile:dollarapp:2026-10-18</td></tr><tr><td>2026-10-18</td><td>Oasis Vault</td><td>USD</td><td class="mono">hermes-reconcile:brex:2026-10-18</td></tr><tr><td>2026-10-18</td><td>Oasis Vault</td><td>USD</td><td class="mono">hermes-reconcile:relay-v2:2026-10-18</td></tr><tr><td>2026-10-18</td><td>Oasis Vault</td><td>USD</td><td class="mono">hermes-diff-close:c4</td></tr><tr><td>2026-10-18</td><td>The OTC Desk</td><td>MXN</td><td class="mono">hermes-reconcile:otc-bank:2026-10-18</td></tr><tr><td>2026-10-18</td><td>The OTC Desk</td><td>MXN</td><td class="mono">hermes-reconcile:otc-cash:2026-10-18</td></tr><tr><td>2026-10-18</td><td>The OTC Desk</td><td>MXN</td><td class="mono">hermes-opening:monato:2026-10-18</td></tr><tr><td>2026-03-20</td><td>Mist Labs</td><td>USD</td><td class="mono">hermes-event:146ed10e2a229a6a915c391f400267d</td></tr></tbody></table>
 </div>
 <footer><span>Saldos leídos en vivo de Odoo; solo asientos publicados. Cada moneda se muestra por separado.</span>
 <a href="https://oasis-vault-sapi-de-cv.odoo.com">Abrir Odoo →</a></footer>
-</div></body></html>
+</div>
+<script>(function(){var b=document.body,k='oasisDashCur';function set(c){b.setAttribute('data-cur',c);document.querySelectorAll('.toggle button').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-cur')===c);});try{localStorage.setItem(k,c);}catch(e){}}document.querySelectorAll('.toggle button').forEach(function(x){x.addEventListener('click',function(){set(x.getAttribute('data-cur'));});});try{var s=localStorage.getItem(k);if(s)set(s);}catch(e){}})();</script>
+</body></html>
